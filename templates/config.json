@@ -1,0 +1,10 @@
+{
+  "params":
+  {
+    "local_server":"True",
+    "local_uri": "mysql://root:@localhost/studentcouncil",
+    "prod_uri": "mysql://root:@localhost/studentcouncil",
+    "gmail-user": "dummyuserforsendingemail@gmail.com",
+    "gmail-password": "ewjxxepvahvygsor"
+  }
+}
