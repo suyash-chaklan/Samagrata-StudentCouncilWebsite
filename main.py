@@ -6,7 +6,15 @@ from sqlalchemy.orm import DeclarativeBase
 from sqlalchemy import Integer, String
 from sqlalchemy.orm import Mapped, mapped_column
 import json
+from dotenv import load_dotenv
+import os
 
+
+def configure():
+    load_dotenv()
+
+
+configure()
 local_server = True
 with open('templates/config.json', 'r') as c:
     params = json.load(c)["params"]
@@ -24,13 +32,13 @@ app.config.update(
     MAIL_PORT='465',
     MAIL_USE_SSL=True,
     MAIL_USERNAME=params['gmail-user'],
-    MAIL_PASSWORD=params['gmail-password']
+    MAIL_PASSWORD=os.getenv('GMAIL_PASSWORD')
 )
 mail = Mail(app)
 if local_server:
-    app.config["SQLALCHEMY_DATABASE_URI"] = params['local_uri']
+    app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv('LOCAL_URI')
 else:
-    app.config["SQLALCHEMY_DATABASE_URI"] = params['prod_uri']
+    app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv('PROD_URI')
 
 db.init_app(app)
 
