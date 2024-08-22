@@ -1,12 +1,12 @@
 <div align="center" id="top"> 
-  <img src="./.github/app.gif" alt="Samagrata  Student Council Web" />
+  <img src="./.github/app.gif" alt="Samagrata: Student Council Web" />
 
   &#xa0;
 
   <!-- <a href="https://samagratastudentcouncilweb.netlify.app">Demo</a> -->
 </div>
 
-<h1 align="center">Samagrata  Student Council Web</h1>
+<h1 align="center">Samagrata: Student Council Web</h1>
 
 <p align="center">
   <img alt="Github top language" src="https://img.shields.io/github/languages/top/{{YOUR_GITHUB_USERNAME}}/samagrata--student-council-web?color=56BEB8">
