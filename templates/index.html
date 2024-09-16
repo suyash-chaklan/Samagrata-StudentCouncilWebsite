@@ -28,6 +28,16 @@
   <link href="static/css/main.css" rel="stylesheet">
 
 </head>
+<style>
+ .service-item .icon img {
+    width: 100px;  /* Adjust the width as needed */
+    height: 80px;  /* Adjust the height as needed */
+    object-fit: contain; /* Ensures the entire image fits within the container */
+    display: block;
+    margin: 0 auto; /* Centers the image */
+}
+
+</style>
 
 <body class="index-page">
 
@@ -68,7 +78,8 @@
           <div class="col-lg-8">
             <h2>Welcome to The Student Council's Official Website</h2>
             <p>We are 'The Team'</p>
-            <a href="/apply" class="btn-get-started">Apply to Student Council/Clubs</a>
+            <a href="/apply_sc" class="btn-get-started">Apply to Student Council</a><br>
+            <a href="/apply-clubs" class="btn-get-started">Apply to Clubs</a>
           </div>
         </div>
       </div>
@@ -93,7 +104,7 @@
             <p>
               Made in 2022, the JECRC Student Council under the guidance of our mentors, has been the organizing brawn and brain behind most events at the Jaipur Engineering College and Research Centre. We have a plethora of clubs and events which bring out the essence of JECRC.
             </p>
-            <a href="#" class="about-btn align-self-center align-self-xl-start"><span>About us</span> <i class="bi bi-chevron-right"></i></a>
+            <a href="/team" class="about-btn align-self-center align-self-xl-start"><span>Our Team</span> <i class="bi bi-chevron-right"></i></a>
           </div>
 
           <div class="col-xl-7" data-aos="fade-up" data-aos-delay="200">
@@ -117,13 +128,7 @@
                 <p>From robots to drones, cars to websites, our technical clubs have it all.</p>
               </div><!-- Icon-Box -->
 
-              <div class="col-md-6 icon-box position-relative">
-                <i class="bi bi-easel"></i>
-                <h4><a href="" class="stretched-link">Departmental Clubs</a></h4>
-                <p>We have multiple departmental clubs aside our SC for your overall development.</p>
-              </div><!-- Icon-Box -->
 
-            </div>
           </div>
 
         </div>
@@ -146,34 +151,39 @@
         <div class="row gy-4">
 
           <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-item position-relative">
-              <div class="icon"><i class="bi bi-activity icon"></i></div>
-              <h4><a href="" class="stretched-link">Fotografreaks</a></h4>
-              <p>Our photography club that makes us see our campus and students through the lenses.</p>
-            </div>
-          </div><!-- End Service Item -->
+    <div class="service-item position-relative">
+        <div class="icon">
+            <img src="static/img/clubs/fotografreaks.png" alt="Fotografreaks Logo" data-aos="fade-in">
+        </div>
+        <h4><a href="" class="stretched-link">Fotografreaks</a></h4>
+        <p>Our photography club that makes us see our campus and students through the lenses.</p>
+    </div>
+</div><!-- End Service Item -->
 
-          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-item position-relative">
-              <div class="icon"><i class="bi bi-bounding-box-circles icon"></i></div>
-              <h4><a href="" class="stretched-link">Enigma Dance Crew</a></h4>
-              <p>Our western dance society! They know the moves!</p>
-            </div>
-          </div><!-- End Service Item -->
+<div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
+    <div class="service-item position-relative">
+        <div class="icon">
+            <img src="static/img/clubs/enigma.png" alt="Enigma Dance Crew Logo">
+        </div>
+        <h4><a href="" class="stretched-link">Enigma Dance Crew</a></h4>
+        <p>Dancing to the rhythm of life—Enigma, where passion takes form. A space where creativity flows with every beat and emotion finds its expression through movement. 
+</p>
+    </div>
+</div><!-- End Service Item -->
 
           <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
             <div class="service-item position-relative">
-              <div class="icon"><i class="bi bi-calendar4-week icon"></i></div>
+              <div class="icon"><img src="static/img/clubs/avyaan.png" alt="Avyaan Music Logo"></div>
               <h4><a href="" class="stretched-link">Avyaan</a></h4>
-              <p>The official music club of JECRC. From classical to metal, hip-hop to bollywood, they do it all!</p>
+              <p>Where voices blend and magic happens—Avyaan, the music club of JECRC. A stage for dreamers, creators, and performers to shine. Every note sparks a new story, turning silence into symphony!</p>
             </div>
           </div><!-- End Service Item -->
 
           <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="400">
             <div class="service-item position-relative">
-              <div class="icon"><i class="bi bi-broadcast icon"></i></div>
+              <div class="icon"><img src="static/img/clubs/adaa.png" alt="Adaa Logo"></div>
               <h4><a href="" class="stretched-link">Adaa</a></h4>
-              <p>The fashion club of JECRC. They sure know how to display there Adaa</p>
+              <p>Where fashion isn't just worn, it's lived with confidence and creativity. Elegance in every edge, boldness in every fold—Adaa sets the trend.</p>
             </div>
           </div><!-- End Service Item -->
 
@@ -186,33 +196,35 @@
 
           <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
             <div class="service-item position-relative">
-              <div class="icon"><i class="bi bi-activity icon"></i></div>
+              <div class="icon"><<img src="static/img/clubs/fnf.png" alt="FnF Logo"></div>
               <h4><a href="" class="stretched-link">FnF</a></h4>
-              <p>The Face n' Footlights is the dramatics crew of JECRC. For what we know, they're a bunch of overachievers</p>
+              <p>FnF, the drama club, allows students to participate in acting and stage performances, bringing stories to life at JECRC. For what we know, they're a bunch of overachievers</p>
             </div>
           </div><!-- End Service Item -->
 
           <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
             <div class="service-item position-relative">
-              <div class="icon"><i class="bi bi-bounding-box-circles icon"></i></div>
+              <div class="icon"><img src="static/img/clubs/khalas.png" alt="Khalas Bhangra Crew Logo"></div>
               <h4><a href="" class="stretched-link">Khalas Bhangra Crew</a></h4>
-              <p>The Khalas Bhangra Crew is the folk dance crew of JECRC. You want energy? We have Khalas!</p>
+              <p>Khalas is the Bhangra club of JECRC which celebrates the Punjabi culture through traditional and energetic dance performances.</p>
             </div>
           </div><!-- End Service Item -->
 
           <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
             <div class="service-item position-relative">
-              <div class="icon"><i class="bi bi-calendar4-week icon"></i></div>
+              <div class="icon"><img src="static/img/clubs/atrangi.png" alt="Atrangi Logo"></div>
               <h4><a href="" class="stretched-link">Atrangi</a></h4>
-              <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
+              <p>Atrangi is a a cultural club that is a vibrant hub of art and artists, brimming with creativity in every form. From poets to writers and beyond, there is no limit to the imagination that thrives here.</p>
             </div>
           </div><!-- End Service Item -->
 
           <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="400">
             <div class="service-item position-relative">
-              <div class="icon"><i class="bi bi-broadcast icon"></i></div>
+              <div class="icon"><img src="static/img/clubs/suhasini.png" alt="Suhasini Logo"></div>
               <h4><a href="" class="stretched-link">Suhasini</a></h4>
-              <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
+              <p>Suhasni is a social club at JECRC dedicated to empowering girls through education, ensuring their safety, and fostering their dreams for each one to rise and shine with confidence and courage. Together, we craft a future where every girl can thrive.
+
+</p>
             </div>
           </div><!-- End Service Item -->
 
@@ -225,37 +237,55 @@
 
           <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
             <div class="service-item position-relative">
-              <div class="icon"><i class="bi bi-activity icon"></i></div>
+              <div class="icon"><img src="static/img/clubs/aashayein.png" alt="Aashayein Logo"></div>
               <h4><a href="" class="stretched-link">Aashayein</a></h4>
-              <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+              <p>This dynamic social club bridges the gap between blood donors and patients through drives and checkup camps. With selfless volunteers, Aashayein swiftly connects donors to those in need, saving lives in crisis.</p>
             </div>
           </div><!-- End Service Item -->
 
           <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
             <div class="service-item position-relative">
-              <div class="icon"><i class="bi bi-bounding-box-circles icon"></i></div>
+              <div class="icon"><img src="static/img/clubs/soch.png" alt="Soch Logo"></div>
               <h4><a href="" class="stretched-link">Soch</a></h4>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+              <p>"SOCH KUCH KAR DIKHANE KI”. From "Safai Abhiyan" to "Vastr Samman", SOCH makes a difference through environmental cleanups, clothing drives, and social awareness campaigns. Transforming lives, inspiring others, SOCH leads societal change with engagement and innovation.
+</p>
             </div>
           </div><!-- End Service Item -->
 
           <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
             <div class="service-item position-relative">
-              <div class="icon"><i class="bi bi-calendar4-week icon"></i></div>
+              <div class="icon"><img src="static/img/clubs/xananoids.png" alt="Xananoids Logo"></div>
               <h4><a href="" class="stretched-link">Xananoids</a></h4>
-              <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
+              <p>Where innovation meets automation. Crafting robots that redefine possibilities and spark future revolutions, engineered by passionate minds dedicated to pushing the boundaries of technology. The robotic people, leading the charge into the future.</p>
             </div>
           </div><!-- End Service Item -->
 
           <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="400">
             <div class="service-item position-relative">
-              <div class="icon"><i class="bi bi-broadcast icon"></i></div>
+              <div class="icon"><img src="static/img/clubs/moonriders.png" alt="Moonriders Logo"></div>
               <h4><a href="" class="stretched-link">Moonriders</a></h4>
-              <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
+              <p>Where gears turn dreams into speed and innovation takes the wheel. The automotive engineering innovation at JECRC.</p>
             </div>
           </div><!-- End Service Item -->
 
         </div>
+
+      </div>
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item position-relative">
+              <div class="icon"><img src="static/img/clubs/zarurat.png" alt="Zarurat Logo"></div>
+              <h4><a href="" class="stretched-link">Zarurat - The Help Beyond!!
+</a></h4>
+              <p>Giving wings to dreams that deserve to soar. Zarurat is a social club that aims to empower every child with the education they aspire to and build a brighter future. We stand firm in the belief that education is a right, not a privilege, and every child deserves the chance to rise.
+</p>
+            </div>
+          </div><!-- End Service Item -->
+
+
 
       </div>
 
@@ -300,7 +330,7 @@
             <li data-filter="*" class="filter-active">All</li>
             <li data-filter=".filter-app">Renaissance</li>
             <li data-filter=".filter-product">Freshers</li>
-            <li data-filter=".filter-branding">Navras</li>
+            <li data-filter=".filter-branding">Navrang</li>
           </ul><!-- End Portfolio Filters -->
 
           <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
@@ -403,7 +433,7 @@
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Mentors</h2>
-        <p><span>Section Title</span> <span class="description-title">Meet our Mentors</span></p>
+        <p><span>Meet Our</span> <span class="description-title">Mentors</span></p>
       </div><!-- End Section Title -->
 
       <div class="container">

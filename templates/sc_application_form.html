@@ -1,23 +1,29 @@
 <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-center">
-  <form class="text-center" style="width: 50%;" action="/apply/submit" method="POST">
+  <form class="text-center" style="width: 50%;" action="{{ url_for('submit_sc') }}" method="POST">
     <div class="form-floating mb-3">
-      <input type="text" class="form-control" id="floatingName" name="name" placeholder="Full Name">
-      <label for="floatingName">Full Name</label>
+      <input type="text" class="form-control" id="floatingscName" name="scname" placeholder="Full Name">
+      <label for="floatingscName">Full Name</label>
     </div>
     <div class="form-floating mb-3">
-      <input type="email" class="form-control" id="floatingInput" name="email" placeholder="name.branchyop@jecrc.ac.in">
-      <label for="floatingInput">Email address</label>
+      <input type="email" class="form-control" id="floatingscInput" name="scemail" placeholder="name.branchyop@jecrc.ac.in">
+      <label for="floatingscInput">Email address</label>
     </div>
     <div class="form-floating mb-3">
-      <input type="text" class="form-control" id="floatingRollNo" name="roll_no" placeholder="RTU Roll Number">
-      <label for="floatingRollNo">RTU Roll Number</label>
+      <input type="text" class="form-control" id="floatingscRollNo" name="scroll_no" placeholder="RTU Roll Number">
+      <label for="floatingscRollNo">RTU Roll Number</label>
     </div>
     <div class="form-floating mb-3">
-      <select class="form-select" name="club_priority_1" aria-label="Club Priority 1">
+      <input type="text" class="form-control" id="floatingscPhone" name="scphone" placeholder="WhatsApp Number">
+      <label for="floatingscPhone">WhatsApp Number</label>
+    </div>
+    <div class="form-floating mb-3">
+      <select class="form-select" name="verticalpriority" aria-label="Vertical Priority">
         <option selected>Vertical Preference</option>
         <option value="Operations">Operations</option>
         <option value="Cultural">Cultural</option>
         <option value="Media">Media</option>
+        <option value="Graphics">Graphics</option>
+        <option value="Technical">Technical</option>
       </select>
     </div>
 

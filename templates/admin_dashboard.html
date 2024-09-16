@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <title>Admin Dashboard</title>
+</head>
+<body>
+    <div class="container mt-4">
+        <div class="d-flex justify-content-between align-items-center">
+            <h2>Admin Dashboard</h2>
+            <!-- Logout Button -->
+            <form action="{{ url_for('admin_logout') }}" method="POST">
+                <button class="btn btn-danger">Logout</button>
+            </form>
+        </div>
+
+        <a href="{{ url_for('export_csv') }}" class="btn btn-primary mb-3">Export Database as CSV</a>
+
+
+        <ul class="nav nav-tabs" id="adminTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="club-tab" data-toggle="tab" href="#club" role="tab" aria-controls="club" aria-selected="true">Club Recruitments</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="sc-tab" data-toggle="tab" href="#sc" role="tab" aria-controls="sc" aria-selected="false">Student Council Recruitments</a>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="adminTabContent">
+
+            <!-- Club Recruitments -->
+            <div class="tab-pane fade show active" id="club" role="tabpanel" aria-labelledby="club-tab">
+                <h3>Club Recruitments</h3>
+
+                <!-- Filter dropdown for club names (priorities) -->
+                <div class="form-group">
+                    <label for="priorityFilter">Filter by Club:</label>
+                    <select id="priorityFilter" class="form-control">
+                        <option value="all">All Clubs</option>
+                        {% for priority in unique_priorities %}
+                        <option value="{{ priority }}">{{ priority }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <table class="table table-bordered mt-3">
+                    <thead>
+                        <tr>
+                            <th>Roll No</th>
+                            <th>Name</th>
+                            <th>Phone</th>
+                            <th>Email</th>
+                            <th>Priority 1</th>
+                            <th>Priority 2</th>
+                            <th>Priority 3</th>
+                            <th>Shortlist Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="clubTableBody">
+                        {% for candidate in club_candidates %}
+                        <tr class="candidate-row" data-priority1="{{ candidate.priority1 }}" data-priority2="{{ candidate.priority2 }}" data-priority3="{{ candidate.priority3 }}">
+                            <td>{{ candidate.roll_no }}</td>
+                            <td>{{ candidate.name }}</td>
+                            <td>{{ candidate.phone }}</td>
+                            <td>{{ candidate.email }}</td>
+                            <td>{{ candidate.priority1 }}</td>
+                            <td>{{ candidate.priority2 }}</td>
+                            <td>{{ candidate.priority3 }}</td>
+                            <td>{{ 'Shortlisted' if candidate.is_shortlisted else 'Not Shortlisted' }}</td>
+                            <td>
+                                <form action="{{ url_for('shortlist_candidate', roll_no=candidate.roll_no, recruit_type='club') }}" method="POST">
+                                    <button class="btn btn-success" {% if candidate.is_shortlisted %}disabled{% endif %}>Shortlist</button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Student Council Recruitments -->
+<div class="tab-pane fade" id="sc" role="tabpanel" aria-labelledby="sc-tab">
+    <h3>Student Council Recruitments</h3>
+
+    <!-- Dropdown to filter by priorities -->
+    <form method="GET" action="{{ url_for('admin_dashboard') }}">
+        <div class="form-group">
+            <label for="sc_priority_filter">Filter by Priority</label>
+            <select id="sc_priority_filter" name="sc_priority_filter" class="form-control" onchange="this.form.submit()">
+                <option value="">All Priorities</option>
+                {% for priority in sc_priorities %}
+                <option value="{{ priority }}" {% if selected_sc_priority == priority %}selected{% endif %}>{{ priority }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </form>
+
+    <table class="table table-bordered mt-3">
+        <thead>
+            <tr>
+                <th>Roll No</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Priority</th>
+                <th>Shortlist Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for candidate in sc_candidates %}
+            <tr>
+                <td>{{ candidate.roll_no }}</td>
+                <td>{{ candidate.name }}</td>
+                <td>{{ candidate.phone }}</td>
+                <td>{{ candidate.email }}</td>
+                <td>{{ candidate.priority }}</td>
+                <td>{{ 'Shortlisted' if candidate.is_shortlisted else 'Not Shortlisted' }}</td>
+                <td>
+                    <form action="{{ url_for('shortlist_candidate', roll_no=candidate.roll_no, recruit_type='sc') }}" method="POST">
+                        <button class="btn btn-success" {% if candidate.is_shortlisted %}disabled{% endif %}>Shortlist</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <!-- JavaScript for filtering the club candidates by selected club -->
+    <script>
+        document.getElementById('priorityFilter').addEventListener('change', function() {
+            let selectedPriority = this.value;
+            let rows = document.querySelectorAll('.candidate-row');
+
+            rows.forEach(function(row) {
+                let priority1 = row.getAttribute('data-priority1');
+                let priority2 = row.getAttribute('data-priority2');
+                let priority3 = row.getAttribute('data-priority3');
+
+                // Show all rows if "all" is selected
+                if (selectedPriority === 'all') {
+                    row.style.display = '';
+                } else {
+                    // Check if the row matches the selected priority in any of the priority columns
+                    if (priority1 === selectedPriority || priority2 === selectedPriority || priority3 === selectedPriority) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

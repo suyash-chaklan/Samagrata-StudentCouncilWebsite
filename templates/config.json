@@ -2,6 +2,9 @@
   "params":
   {
     "local_server":"True",
-    "gmail-user": "dummyuserforsendingemail@gmail.com"
+    "gmail-user": "dummyuserforsendingemail@gmail.com",
+    "admin_user": "admin",
+    "admin_pass": "council@2024"
   }
 }
+
